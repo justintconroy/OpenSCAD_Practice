@@ -2,7 +2,7 @@
 module d6_letter(
 	letter,
 	letter_size=10,
-	font="Consolas",
+	font="Liberation Sans",
 	lHeight=1)
 {
 	linear_extrude(height=lHeight)
@@ -103,19 +103,23 @@ module d6(
 		}
 	}
 }
-
-//d6(5,d6_lHeight=.5,d6_lSize=1,
-//	d6_dieValues=
-//		["one","two","three",
-//		 "four","five","nine"]);
+/*
+// Doesn't render the die faces for some reason...
+d6(20,d6_lHeight=.5,d6_lSize=19,
+	d6_dieValues=
+		["⚀","⚁","⚂","⚃","⚄","⚅"]);
+/*
+linear_extrude(1)
+{
+	translate([10,10,0]) text("Hello \u2680 World",font="DejaVu Sans");
+	translate([30,0,0]) text("\u20AC10 \u263A");
+}
 
 // Some examples.
-/*
-resize(newsize=[3,2,1]) //d6(15);
-
 translate([90,0,0])
-	rotate([90,0,0])
-	d6(30,"blue","white");
+	rotate([0,180,0])
+	d6(30,"blue","white",2);
+
 /*
 translate([-90,0,0])
 	rotate([0,90,180])
